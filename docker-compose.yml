@@ -1,0 +1,11 @@
+version: '3'
+services:
+  server:
+    restart: always
+    build:
+      context: .
+    environment:
+      - CACHE=600
+      - SERVER_PORT=8802
+    ports:
+      - 8801:8802
