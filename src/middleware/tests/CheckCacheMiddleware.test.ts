@@ -1,18 +1,11 @@
 import nodeMocks from "node-mocks-http";
 import CheckCacheMiddleware from "../CheckCacheMiddleware";
+import Settings from "../../config/Settings";
 
 describe("middleware:CheckCacheMiddleware", () => {
-    const OLD_ENV = process.env;
 
-    beforeEach(() => {
-        jest.resetModules(); // this is important - it clears the cache
-        OLD_ENV.CACHE = "123";
-        process.env = {...OLD_ENV};
-        delete process.env.NODE_ENV;
-    });
-
-    afterEach(() => {
-        process.env = OLD_ENV;
+    beforeAll(() => {
+        Settings.Cache = 10;
     });
 
     test("error", () => {
@@ -70,7 +63,7 @@ describe("middleware:CheckCacheMiddleware", () => {
     });
 
     test("cache disabled", () => {
-        process.env.CACHE = undefined;
+        Settings.Cache = undefined;
         const nextSpy = jest.fn();
         const req = nodeMocks.createRequest({
         });

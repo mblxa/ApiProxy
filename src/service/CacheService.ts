@@ -1,6 +1,6 @@
 import NodeCache from "node-cache";
-import settings from "../config/settings";
+import Settings from "../config/Settings";
 
-const CacheService = new NodeCache( { stdTTL: +settings().cache, checkperiod: 10 * 10 } );
+const CacheService = new NodeCache( { stdTTL: +Settings.Cache, checkperiod: 10 * 10 } );
 
 export default CacheService;

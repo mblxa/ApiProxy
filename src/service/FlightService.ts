@@ -1,10 +1,10 @@
 import fetch from "isomorphic-unfetch";
-import settings from "../config/settings";
+import Settings from "../config/Settings";
 
 const getFullData = async (city: string, offset: number) => {
     const options = {
         headers: {
-            Authorization: `Basic ${settings().external_api_key}`
+            Authorization: `Basic ${Settings.ApiHost}`
         }
     };
 

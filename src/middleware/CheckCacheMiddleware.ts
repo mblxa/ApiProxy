@@ -1,9 +1,9 @@
 import express from "express";
-import settings from "../config/settings";
+import Settings from "../config/Settings";
 import CacheService from "../service/CacheService";
 
 const CheckCacheMiddleware: express.RequestHandler = (req, res, next) => {
-    if (!settings().cache) { return next(); }
+    if (!Settings.Cache) { return next(); }
 
     const {city} = req.params;
     const {offset} = req.params;

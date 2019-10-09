@@ -9,8 +9,8 @@
     "prestart": "npm run build",
     "start": "node .",
     "start:production": "node .",
-    "test": "cross-env NODE_ENV=test API_KEY=123 API_HOST=123 CACHE=123 jest --coverage",
-    "test:watch": "cross-env NODE_ENV=test API_KEY=123 API_HOST=123 CACHE=123 jest --watch",
+    "test": "cross-env NODE_ENV=test jest --coverage",
+    "test:watch": "cross-env NODE_ENV=test jest --watch",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "repository": {

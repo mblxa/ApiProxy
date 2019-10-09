@@ -1,9 +1,7 @@
 import app from "./app";
-import settings from "./config/settings";
+import Settings from "./config/Settings";
 
-if (settings()) {
-    app.listen(settings().server.port, () => {
-        // tslint:disable-next-line:no-console
-        console.log("Listening on port 8801!");
-    });
-}
+app.listen(Settings.Server.Port, () => {
+    // tslint:disable-next-line:no-console
+    console.log("Listening on port 8801!");
+});

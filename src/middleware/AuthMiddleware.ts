@@ -1,8 +1,10 @@
 import express = require("express");
 import fetch from "isomorphic-unfetch";
-import settings from "../config/settings";
+import Settings from "../config/Settings";
 
 const AuthMiddleware: express.RequestHandler = async (req, res, next) => {
+    if (!Settings.AuthHost) { return next(); }
+
     const token = req.header("token");
 
     if (!token) {
@@ -10,7 +12,7 @@ const AuthMiddleware: express.RequestHandler = async (req, res, next) => {
         return;
     }
 
-    const auth = await fetch(`${settings().api_host}`, {headers: {token}}).catch(() => ({status: 403}));
+    const auth = await fetch(`${Settings.AuthHost}`, {headers: {token}}).catch(() => ({status: 403}));
 
     if (auth.status === 403) {
         res.status(403).end();
