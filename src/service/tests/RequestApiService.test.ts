@@ -9,4 +9,11 @@ describe("service:FlightService", () => {
 
         expect(data).toEqual({});
     });
+
+    test("should work without header", async () => {
+        Settings.ExternalApi.AuthHeader = undefined;
+        const data = await getFullData(["p1", "p2"]);
+
+        expect(data).toEqual({});
+    });
 });
