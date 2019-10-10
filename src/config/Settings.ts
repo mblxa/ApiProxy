@@ -44,7 +44,8 @@ class Settings {
 
     constructor() {
         try {
-            const doc = yaml.safeLoad(fs.readFileSync("./config/config.yml", "utf8"));
+            const configFile = process.env.NODE_ENV === "test" ? "./src/config/config.test.yml" : "./config/config.yml";
+            const doc = yaml.safeLoad(fs.readFileSync(configFile, "utf8"));
             this.config = {...this.config, ...doc};
 
             this.Auth = this.config.Auth;

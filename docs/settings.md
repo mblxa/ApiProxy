@@ -9,12 +9,6 @@ Example to proxy weather from [OpenWeatherMap](http://openweathermap.org)
 ExternalApi:
   URL: http://api.openweathermap.org/data/2.5/forecast?lang=ru&units=metric&APPID=<your app id here>
   Params: /:lat/:lon
-  AuthHeader:
-  AuthToken:
-Server:
-  Port: 8801
-  Debug: false
-  Cache:
 ```
 
 

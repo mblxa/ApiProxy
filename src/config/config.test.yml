@@ -1,0 +1,12 @@
+Auth:
+  Host: 321
+  Header: Auth
+ExternalApi:
+  URL: 123
+  Params: /:p1/:p2
+  AuthHeader: Auth
+  AuthToken: 112233
+Server:
+  Port: 8801
+  Debug: false
+  Cache: 0

@@ -1,3 +1,6 @@
+Auth:
+  Host:
+  Header:
 ExternalApi:
   URL:
   Params:
