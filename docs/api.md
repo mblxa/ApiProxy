@@ -1,3 +1,5 @@
-GET /:airport code/:offset
+Based on configured [API_HOST](api.md) parameter
 
-(/UMKK/0)
+```bash
+GET /:param1/:param2
+```

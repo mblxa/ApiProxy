@@ -1,9 +1,16 @@
-AUTH_HOST - Auth api endpoint (http://api_host:port/api/v2)
-AUTH_HEADER - Auth Header key to proxy
+**AUTH_HOST** - Auth api endpoint
 
-SERVER_PORT
+**AUTH_HEADER** - Auth Header key to proxy
 
-CACHE (in seconds)
+**SERVER_PORT** 
 
-API_HOST key for flights
+**CACHE** (in seconds)
+
+
+**API_HOST** - Url for service and static params, e.g. http://api.weather.com?lang=en&units=metric
+Should include 3rd party token if authorization if via URL 
+
+**API_HEADER** - Name of header for authorization at 3rd party
+
+**API_TOKEN** - Value of header for authorization at 3rd party
 
