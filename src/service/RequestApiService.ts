@@ -1,7 +1,7 @@
 import fetch from "isomorphic-unfetch";
 import Settings from "../config/Settings";
 
-const getFullData = async (requestParams: string[]) => {
+const GetExternalApiData = async (requestParams: string[]) => {
     let options;
     if (Settings.ExternalApi.AuthHeader) {
         options = {
@@ -21,4 +21,4 @@ const getFullData = async (requestParams: string[]) => {
         });
 };
 
-export default getFullData;
+export default GetExternalApiData;
