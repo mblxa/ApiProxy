@@ -17,6 +17,7 @@ const CheckCacheMiddleware: express.RequestHandler = (req, res, next) => {
     res.locals.cachePath = path.join("-");
     res.locals.requestParams = requestParams;
 
+    console.log(res.locals.cachePath);
     CacheService.get(res.locals.cachePath, (err, value) => {
         if (!err) {
             if (value !== undefined) {

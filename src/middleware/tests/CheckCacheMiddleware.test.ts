@@ -9,6 +9,7 @@ describe("middleware:CheckCacheMiddleware", () => {
     });
 
     test("error", () => {
+        Settings.ExternalApi.Params = "/:city/:offset";
         const nextSpy = jest.fn();
         const req = nodeMocks.createRequest({
             headers: {
@@ -27,6 +28,7 @@ describe("middleware:CheckCacheMiddleware", () => {
     });
 
     test("cache no value", () => {
+        Settings.ExternalApi.Params = "/:city/:offset";
         const nextSpy = jest.fn();
         const req = nodeMocks.createRequest({
             headers: {
