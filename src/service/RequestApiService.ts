@@ -2,11 +2,14 @@ import fetch from "isomorphic-unfetch";
 import Settings from "../config/Settings";
 
 const getFullData = async (requestParams: string[]) => {
-    const options = {
-        headers: {
-            [Settings.ExternalApi.AuthHeader]: Settings.ExternalApi.AuthToken
-        }
-    };
+    let options;
+    if (Settings.ExternalApi.AuthHeader) {
+        options = {
+            headers: {
+                [Settings.ExternalApi.AuthHeader]: Settings.ExternalApi.AuthToken
+            }
+        };
+    }
 
     const urlParams = requestParams.join("&");
 

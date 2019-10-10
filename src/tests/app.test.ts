@@ -1,5 +1,6 @@
 import request from "supertest";
 import app from "../app";
+import Settings from "../config/Settings";
 
 jest.mock("../middleware/AuthMiddleware", () => {
     return jest.fn().mockImplementation(async (req, res, next) => {
@@ -18,7 +19,6 @@ jest.mock("../middleware/CheckCacheMiddleware", () => {
 });
 
 describe("Test the root path", () => {
-
     test("It should response the GET method", (done) => {
         request(app).get("/").then((response) => {
             expect(response.status).toBe(404);
