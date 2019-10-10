@@ -4,7 +4,10 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 class Settings {
-    public AuthHost: string;
+    public Auth = {
+        Header: "",
+        Host: "",
+    };
     public Cache: number;
     public ApiHost: string;
     public Server = {
@@ -14,9 +17,14 @@ class Settings {
 
     constructor() {
         if (!process.env.AUTH_HOST) {
-            this.warnMessage("AUTH_HOST", "No auth");
+            this.warnMessage("AUTH_HOST", "No auth host");
         } else {
-            this.AuthHost = process.env.AUTH_HOST;
+            this.Auth.Host = process.env.AUTH_HOST;
+        }
+        if (!process.env.AUTH_HEADER) {
+            this.warnMessage("AUTH_HEADER", "No auth header");
+        } else {
+            this.Auth.Header = process.env.AUTH_HEADER;
         }
         if (!process.env.CACHE) {
             this.warnMessage("CACHE", "no cache");
@@ -45,6 +53,7 @@ class Settings {
     private errMessage = (key: string) => {
         console.log(`${key} is not configured`);
     }
+
     private warnMessage = (key: string, def: string) => {
         if (this.Server.Debug) { console.log(`${key} is not configured, using default: ${def}`); }
     }

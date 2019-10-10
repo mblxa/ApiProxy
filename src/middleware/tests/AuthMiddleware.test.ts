@@ -4,7 +4,8 @@ import AuthMiddleware from "../AuthMiddleware";
 
 describe("middleware:AuthMiddleware", () => {
     beforeAll(() => {
-        Settings.AuthHost = "123";
+        Settings.Auth.Host = "123";
+        Settings.Auth.Header = "token";
     });
 
     test("no token", async () => {
@@ -65,7 +66,7 @@ describe("middleware:AuthMiddleware", () => {
         expect(nextSpy).not.toHaveBeenCalled();
     });
     test("auth disabled", async () => {
-        Settings.AuthHost = undefined;
+        Settings.Auth.Host = undefined;
         const nextSpy = jest.fn();
         const req = nodeMocks.createRequest({
         });
