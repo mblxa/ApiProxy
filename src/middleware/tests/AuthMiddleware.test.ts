@@ -1,11 +1,11 @@
 import nodeMocks from "node-mocks-http";
-import AuthMiddleware from "../AuthMiddleware";
 import Settings from "../../config/Settings";
+import AuthMiddleware from "../AuthMiddleware";
 
 describe("middleware:AuthMiddleware", () => {
     beforeAll(() => {
-        Settings.AuthHost = '123';
-    })
+        Settings.AuthHost = "123";
+    });
 
     test("no token", async () => {
         const nextSpy = jest.fn();

@@ -1,5 +1,5 @@
 import dotenv = require("dotenv");
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV !== "production") {
     dotenv.config();
 }
 
@@ -32,7 +32,7 @@ class Settings {
         if (!process.env.SERVER_DEBUG) {
             this.warnMessage("SERVER_DEBUG", "false");
         } else {
-            this.Server.Debug = (process.env.SERVER_DEBUG === 'true')
+            this.Server.Debug = (process.env.SERVER_DEBUG === "true");
         }
         if (!process.env.API_HOST) {
             this.errMessage("API_HOST");
@@ -46,7 +46,7 @@ class Settings {
         console.log(`${key} is not configured`);
     }
     private warnMessage = (key: string, def: string) => {
-        if (this.Server.Debug) console.log(`${key} is not configured, using default: ${def}`);
+        if (this.Server.Debug) { console.log(`${key} is not configured, using default: ${def}`); }
     }
 }
 

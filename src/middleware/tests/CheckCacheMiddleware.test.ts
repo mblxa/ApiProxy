@@ -1,6 +1,6 @@
 import nodeMocks from "node-mocks-http";
-import CheckCacheMiddleware from "../CheckCacheMiddleware";
 import Settings from "../../config/Settings";
+import CheckCacheMiddleware from "../CheckCacheMiddleware";
 
 describe("middleware:CheckCacheMiddleware", () => {
 
