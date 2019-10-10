@@ -5,7 +5,7 @@ import CheckCacheMiddleware from "../CheckCacheMiddleware";
 describe("middleware:CheckCacheMiddleware", () => {
 
     beforeAll(() => {
-        Settings.Cache = 10;
+        Settings.Server.Cache = 10;
     });
 
     test("error", () => {
@@ -65,7 +65,7 @@ describe("middleware:CheckCacheMiddleware", () => {
     });
 
     test("cache disabled", () => {
-        Settings.Cache = undefined;
+        Settings.Server.Cache = undefined;
         const nextSpy = jest.fn();
         const req = nodeMocks.createRequest({
         });
