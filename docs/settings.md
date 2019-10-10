@@ -6,9 +6,10 @@
 
 **CACHE** (in seconds)
 
-
 **API_HOST** - Url for service and static params, e.g. http://api.weather.com?lang=en&units=metric
 Should include 3rd party token if authorization if via URL 
+
+**API_PARAMS** - Dynamic part of 3rd party request, forms ApiProxy api endpoint. Format: "/:param1/:param2.../:paramN"
 
 **API_HEADER** - Name of header for authorization at 3rd party
 

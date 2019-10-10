@@ -1,4 +1,4 @@
-Based on configured [API_HOST](api.md) parameter
+Based on configured [API_HOST](settings.md) parameter
 
 ```bash
 GET /:param1/:param2
