@@ -1,17 +1,25 @@
-**AUTH_HOST** - Auth api endpoint
+### Config file example ###
 
-**AUTH_HEADER** - Auth Header key to proxy
+Boilerplate file can be found [here](../config/config.yml.dist)
 
-**SERVER_PORT** 
 
-**CACHE** (in seconds)
 
-**API_HOST** - Url for service and static params, e.g. http://api.weather.com?lang=en&units=metric
-Should include 3rd party token if authorization if via URL 
+Example to proxy weather from [OpenWeatherMap](http://openweathermap.org)
+```yaml
+ExternalApi:
+  URL: http://api.openweathermap.org/data/2.5/forecast?lang=ru&units=metric&APPID=<your app id here>
+  Params: /:lat/:lon
+  AuthHeader:
+  AuthToken:
+Server:
+  Port: 8801
+  Debug: false
+  Cache:
+```
 
-**API_PARAMS** - Dynamic part of 3rd party request, forms ApiProxy api endpoint. Format: "/:param1/:param2.../:paramN"
 
-**API_HEADER** - Name of header for authorization at 3rd party
-
-**API_TOKEN** - Value of header for authorization at 3rd party
+Weather in New-York City
+```js
+GET /40/-74
+```
 

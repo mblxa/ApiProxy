@@ -9,4 +9,3 @@ Server provides allows to fetch external json data with ability to cache it.
 
 
 * [Server configuration](docs/settings.md)
-* [API](docs/api.md)
