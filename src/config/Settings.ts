@@ -9,7 +9,12 @@ class Settings {
         Host: "",
     };
     public Cache: number;
-    public ApiHost: string;
+    public ExternalApi = {
+        AuthHeader: "",
+        AuthToken: "",
+        Params: "",
+        URL: "",
+    };
     public Server = {
         Debug: false,
         Port: 8801
@@ -46,8 +51,19 @@ class Settings {
             this.errMessage("API_HOST");
             throw new Error("No API_HOST");
         }
+        if (!process.env.API_HEADER) {
+            this.warnMessage("API_HEADER", "no 3rd party auth");
+        } else {
+            this.ExternalApi.AuthHeader = process.env.API_HEADER;
+        }
+        if (!process.env.API_TOKEN) {
+            this.warnMessage("API_TOKEN", "no 3rd party auth");
+        }  else {
+            this.ExternalApi.AuthToken = process.env.API_TOKEN;
+        }
 
-        this.ApiHost = process.env.API_HOST;
+        this.ExternalApi.Params = process.env.API_PARAMS;
+        this.ExternalApi.URL = process.env.API_HOST;
     }
 
     private errMessage = (key: string) => {

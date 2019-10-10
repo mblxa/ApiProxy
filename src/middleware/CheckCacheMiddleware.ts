@@ -5,11 +5,19 @@ import CacheService from "../service/CacheService";
 const CheckCacheMiddleware: express.RequestHandler = (req, res, next) => {
     if (!Settings.Cache) { return next(); }
 
-    const {city} = req.params;
-    const {offset} = req.params;
-    const path = `${city}-${offset}`;
+    const path: string[] = [];
+    const requestParamsKeys = Settings.ExternalApi.Params.split("/:").slice(1);
+    const requestParams: string[] = [];
 
-    CacheService.get(path, (err, value) => {
+    requestParamsKeys.forEach((key) => {
+        path.push(`${req.params[key]}`);
+        requestParams.push(`${key}=${req.params[key]}`);
+    });
+
+    res.locals.cachePath = path.join("-");
+    res.locals.requestParams = requestParams;
+
+    CacheService.get(res.locals.cachePath, (err, value) => {
         if (!err) {
             if (value !== undefined) {
                 res.send(value);
