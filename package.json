@@ -21,14 +21,14 @@
   "license": "MIT",
   "homepage": "https://github.com/mblxa/FlightawareProxy/blob/master/README.md",
   "dependencies": {
-    "@types/js-yaml": "^3.12.1",
-    "@types/supertest": "^2.0.8",
     "express": "^4.17.1",
     "isomorphic-unfetch": "^3.0.0",
     "js-yaml": "^3.13.1",
     "node-cache": "^4.2.1"
   },
   "devDependencies": {
+    "@types/js-yaml": "^3.12.1",
+    "@types/supertest": "^2.0.8",
     "@types/express": "^4.17.1",
     "@types/jest": "^24.0.18",
     "@types/node": "^12.7.11",
